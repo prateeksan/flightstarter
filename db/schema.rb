@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521043412) do
+ActiveRecord::Schema.define(version: 20160521044538) do
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type"
+    t.string   "description"
+    t.float    "requisite_funding"
+    t.boolean  "confirmed"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +29,24 @@ ActiveRecord::Schema.define(version: 20160521043412) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "legs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type"
+    t.date     "start_date"
+    t.date     "max_start_date"
+    t.date     "min_start_date"
+    t.date     "end_date"
+    t.date     "max_end_date"
+    t.date     "min_end_date"
+    t.integer  "campaign_id"
+    t.integer  "startpoint_id"
+    t.integer  "endpoint_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "legs", ["campaign_id"], name: "index_legs_on_campaign_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "title"
