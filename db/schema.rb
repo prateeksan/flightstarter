@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521044538) do
+ActiveRecord::Schema.define(version: 20160521045335) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
@@ -78,5 +78,24 @@ ActiveRecord::Schema.define(version: 20160521044538) do
   end
 
   add_index "stations", ["location_id"], name: "index_stations_on_location_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "email"
+    t.integer  "age"
+    t.string   "pronoun"
+    t.integer  "zip"
+    t.integer  "city_id"
+    t.integer  "location_id"
+    t.string   "street_address"
+    t.string   "avatar"
+    t.string   "bio"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "users", ["city_id"], name: "index_users_on_city_id"
+  add_index "users", ["location_id"], name: "index_users_on_location_id"
 
 end
