@@ -10,7 +10,7 @@
   </p>
   <p>
     <%= f.label :requisite_funding %>
-    <%= f.number_field :requisite_funding, step: 1 %>
+    <%= f.number_field :requisite_funding, min: 0, step: 10 %>
   </p>
   <p>
     <%= f.submit %>
