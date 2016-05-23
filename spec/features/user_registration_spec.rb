@@ -1,9 +1,9 @@
 # /spec/features/user_registration_spec.rb
 require 'rails_helper'
 
-RSpec.feature 'New User Registration' do
+RSpec.feature 'Visitor registers' do
   
-  scenario 'A new user registers with valid fields' do
+  scenario 'with valid fields' do
       visit '/'
       click_link "Sign Up"
 
@@ -23,7 +23,7 @@ RSpec.feature 'New User Registration' do
       expect(page).to have_text("Welcome testuser!")
   end
 
-  scenario 'A new user registers with invalid fields' do
+  scenario 'with invalid fields' do
       visit '/'
       click_link "Sign Up"
 
