@@ -28,6 +28,7 @@ end
 
 group :test do
     gem 'capybara', '2.7.0'
+    gem 'factory_girl_rails'
 end
 
 group :development do
