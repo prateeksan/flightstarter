@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521050223) do
+ActiveRecord::Schema.define(version: 20160523181015) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
     t.string   "type"
     t.string   "description"
-    t.float    "requisite_funding"
+    t.decimal  "requisite_funding", precision: 15, scale: 3
     t.boolean  "confirmed"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "user_id"
   end
 
@@ -65,11 +65,11 @@ ActiveRecord::Schema.define(version: 20160521050223) do
   create_table "pledges", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "campaign_id"
-    t.float    "amount"
+    t.decimal  "amount",      precision: 15, scale: 3
     t.string   "condition"
     t.boolean  "accepted"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "pledges", ["campaign_id"], name: "index_pledges_on_campaign_id"
