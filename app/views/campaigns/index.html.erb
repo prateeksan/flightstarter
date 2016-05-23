@@ -1,0 +1,21 @@
+<h1>Campaigns</h1>
+<% if @campaigns.any? %>
+  <ul>
+    <% @campaigns.each do |campaign| %>
+      <li class="campaign">
+        <p class="title">
+          <strong><%= campaign.title %></strong>
+        </p>
+        <p class="description">
+          <%= campaign.description %>
+        </p>
+        <p class="requisite_funding">
+          <%= campaign.requisite_funding %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no campaigns.
+  <%= link_to 'Why not create one?', new_campaign_path %>
+<% end %>
