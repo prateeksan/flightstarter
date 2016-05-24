@@ -1,0 +1,17 @@
+<h1> Sign Up! </h2>
+
+<%= form_for :user, url: '/users' do |f| %>
+  <ul>
+    <li>Name: <%= f.text_field :username %></li>
+    <li>Email: <%= f.text_field :email %></li>
+    <li>Age: <%= f.text_field :age %></li>
+    <li>Pronoun: <%= f.text_field :pronoun %></li>
+    <li>Zip Code: <%= f.text_field :zip %></li>
+    <li>Street Address: <%= f.text_field :street_address %></li>
+    <li>Bio: <%= f.text_field :bio %></li>
+    <li>Password: <%= f.password_field :password %></li>
+    <li>Password Confirmation: <%= f.password_field :password_confirmation %> </li>
+    <li><%= f.submit 'Submit' %></li>
+  </ul>
+
+<% end %> 
