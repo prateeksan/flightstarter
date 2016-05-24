@@ -1,0 +1,17 @@
+<h1><%= @campaign.title %></h1>
+<% if @campaign.requisite_funding %>
+  <p class="funding">$<%= @campaign.requisite_funding %></p>
+<% end %>
+<% if @campaign.description %>
+  <p class="description"><%= @campaign.description %></p>
+<% end %>
+
+<% if @campaign.legs.any? %>
+  <ul class="legs">
+    <% @campaign.legs.each do |leg| %>
+      <li><%= leg.from_to %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Add leg', new_campaign_leg_path(@campaign, @campaign.legs.new) %>

@@ -5,7 +5,7 @@ class Location < ActiveRecord::Base
 
   def title_with_city
     if city
-      "#{title}, #{city.name_with_country}
+      "#{title}, #{city.name_with_country}"
     else
       title
     end
