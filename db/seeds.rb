@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+City.create([
+  { name: 'Burlington, VT', country: 'USA' },
+  { name: 'Johnson, VT', country: 'USA' },
+  { name: 'Toronto', country: 'Canada' },
+  { name: 'San Francisco, CA', country: 'USA' },
+  { name: 'Seattle, WA', country: 'USA' },
+  { name: 'Vancouver', country: 'Canada' },
+])

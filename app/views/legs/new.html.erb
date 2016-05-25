@@ -1,0 +1,14 @@
+<h1>New Leg</h1>
+<%= form_for [:campaign, @leg] do |f| %>
+  <p>
+    <%= f.label :startpoint %>
+    <%= f.text_field :startpoint %>
+  </p>
+  <p>
+    <%= f.label :endpoint %>
+    <%= f.text_field :endpoint %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
