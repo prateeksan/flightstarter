@@ -1,15 +1,21 @@
 <!doctype html>
-<title>FlightStarter</title>
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<%= csrf_meta_tags %>
+<head>
+  <title>FlightStarter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
+  <!-- TODO(soon): Move this to asset pipeline -->
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
 <body>
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-<%= yield %>
-<% if Rails.env.development? %>
-  <%= nil && debug(params) %>
-  <% console %>
-<% end %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= yield %>
+  <% if Rails.env.development? %>
+    <%= nil && debug(params) %>
+    <% console %>
+  <% end %>
+</body>
+</html>

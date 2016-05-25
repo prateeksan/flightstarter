@@ -24,6 +24,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Bootstrap is a frontend UI Framework.
 gem "twitter-bootstrap-rails", '3.2.2'
 
+# Font-Icons
+gem "font-awesome-rails", '4.6.3.0'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '3.4.0'

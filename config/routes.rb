@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'landing/index'
-
-  root 'users#new'
+  root 'landing#index'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
