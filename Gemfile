@@ -21,6 +21,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Bootstrap is a frontend UI Framework.
+gem "twitter-bootstrap-rails", '3.2.2'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '3.4.0'
