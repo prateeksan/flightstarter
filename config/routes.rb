@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'landing/index'
+
   root 'users#new'
 
   get '/signup' => 'users#new'
