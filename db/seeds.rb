@@ -14,3 +14,9 @@ City.create([
   { name: 'Seattle, WA', country: 'USA' },
   { name: 'Vancouver', country: 'Canada' },
 ])
+
+User.create(
+  username: 'mrdomino',
+  email: 'a',
+  password: 'a',
+)
