@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User views campaigns", type: :feature do
+RSpec.feature "User sees campaigns on campaigns page", type: :feature do
   scenario 'no campaigns' do
     visit '/campaigns'
     expect(page).to have_text('There are no campaigns. Why not create one?')
@@ -9,11 +9,10 @@ RSpec.feature "User views campaigns", type: :feature do
   end
 
   scenario 'a campaign' do
-    create(:campaign, title: 'Awesome Campaign', description: 'A description',
+    create(:campaign, title: 'Awesome Campaign',
            requisite_funding: 123.45)
     visit '/campaigns'
     expect(page).to have_content('Awesome Campaign')
-    expect(page).to have_content('A description')
     expect(page).to have_content('123.45')
   end
 

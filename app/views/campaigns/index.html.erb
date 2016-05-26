@@ -3,15 +3,13 @@
   <ul>
     <% @campaigns.each do |campaign| %>
       <li class="campaign">
-        <p class="title">
-          <strong><%= campaign.title %></strong>
-        </p>
-        <p class="description">
-          <%= campaign.description %>
-        </p>
-        <p class="requisite_funding">
-          <%= campaign.requisite_funding %>
-        </p>
+        <strong>
+          <%= link_to campaign.title, campaign, class: 'title' %>
+        </strong>
+        <span class="requisite_funding">
+          <%# TODO(someday): currency i18n %>
+          ($<%= campaign.requisite_funding %>)
+        </span>
       </li>
     <% end %>
   </ul>

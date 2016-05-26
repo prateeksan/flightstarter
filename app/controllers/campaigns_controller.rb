@@ -1,8 +1,10 @@
 class CampaignsController < ApplicationController
+  # GET /campaigns/new
   def new
     @campaign = Campaign.new
   end
 
+  # POST /campaigns
   def create
     @campaign = Campaign.create(campaign_params)
     if @campaign.save
@@ -13,8 +15,14 @@ class CampaignsController < ApplicationController
     redirect_to campaigns_path
   end
 
+  # GET /campaigns
   def index
     @campaigns = Campaign.all
+  end
+
+  # GET /campaigns/:id
+  def show
+    @campaign = Campaign.find(params[:id])
   end
 
   private

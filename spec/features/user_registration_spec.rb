@@ -1,7 +1,7 @@
 # /spec/features/user_registration_spec.rb
 require 'rails_helper'
 
-RSpec.feature 'Visitor registers' do
+RSpec.xfeature 'Visitor registers' do
   
   scenario 'with valid fields' do
       visit '/'

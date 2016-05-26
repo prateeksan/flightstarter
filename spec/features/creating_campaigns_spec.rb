@@ -22,4 +22,7 @@ RSpec.feature "User creates a campaign", type: :feature do
     click_button 'Create Campaign'
     expect(page).to have_text('Campaign was successfully created.')
   end
+
+  # TODO(soon): doesn't allow numeric-only campaigns
+  # goal: keep /campaigns/:id and /campaigns/:title disjoint
 end
