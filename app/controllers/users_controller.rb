@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def show
+    @current_user = session[:user_id]
+  end
+
   def new
   end
 
