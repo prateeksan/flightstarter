@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  get '/auth/stripe_connect/callback' => 'stripe_auth#callback'
+  get '/auth/failure' => 'stripe_auth#failure'
+
   resources :campaigns do
     resources :legs, shallow: true
   end

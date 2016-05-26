@@ -1,0 +1,2 @@
+module StripeAuthHelper
+end
