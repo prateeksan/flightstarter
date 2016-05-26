@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525205724) do
+ActiveRecord::Schema.define(version: 20160526203034) do
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
@@ -53,17 +53,6 @@ ActiveRecord::Schema.define(version: 20160525205724) do
 
   add_index "legs", ["campaign_id"], name: "index_legs_on_campaign_id"
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "title"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.integer  "city_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "locations", ["city_id"], name: "index_locations_on_city_id"
-
   create_table "pledges", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "campaign_id"
@@ -80,22 +69,18 @@ ActiveRecord::Schema.define(version: 20160525205724) do
   create_table "residences", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "city_id"
   end
-
-  add_index "residences", ["location_id"], name: "index_residences_on_location_id"
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "city_id"
   end
-
-  add_index "stations", ["location_id"], name: "index_stations_on_location_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -105,7 +90,6 @@ ActiveRecord::Schema.define(version: 20160525205724) do
     t.string   "pronoun"
     t.integer  "zip"
     t.integer  "city_id"
-    t.integer  "location_id"
     t.string   "street_address"
     t.string   "avatar"
     t.string   "bio"
@@ -114,6 +98,5 @@ ActiveRecord::Schema.define(version: 20160525205724) do
   end
 
   add_index "users", ["city_id"], name: "index_users_on_city_id"
-  add_index "users", ["location_id"], name: "index_users_on_location_id"
 
 end
