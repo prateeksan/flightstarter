@@ -1,13 +1,15 @@
 class SessionsController < ApplicationController
 
   def new
+    redirect_to '/auth/stripe'
   end
 
   def create
-    user = User.find_by(email: params[:email])
-
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    auth = request.env['omniauth.auth']
+    user = User.where(
+        provider: auth['provider'],
+        uid: auth['uid'].to_s).first || User.create_with_omniauth(auth)
+    session[:user_id] = user.id
       redirect_to '/'
     else
       redirect_to '/login'
@@ -20,4 +22,3 @@ class SessionsController < ApplicationController
   end
 
 end
-

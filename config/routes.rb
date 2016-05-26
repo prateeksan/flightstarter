@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show', as: 'user'
 
   get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
   get '/logout' => 'sessions#destroy'
 
   resources :campaigns do
