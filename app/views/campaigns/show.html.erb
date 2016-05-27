@@ -9,7 +9,7 @@
 <% if @campaign.legs.any? %>
   <ul class="legs">
     <% @campaign.legs.each do |leg| %>
-      <li><%= leg.from_to %>
+      <li id="leg-<%= leg.id %>"><%= leg.from_to %> <%= link_to fa_icon('remove'), leg_path(leg), method: :delete, title: 'Delete leg' %>
     <% end %>
   </ul>
 <% end %>

@@ -18,6 +18,13 @@ class LegsController < ApplicationController
     redirect_to campaign_path(params[:campaign_id])
   end
 
+  # DELETE /legs/:id
+  def destroy
+    @leg = Leg.find(params[:id])
+    @leg.delete
+    redirect_to @leg.campaign
+  end
+
   protected
     def leg_params
       params.require(:leg).permit(:campaign_id, :startpoint, :endpoint)
