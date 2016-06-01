@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525205724) do
+ActiveRecord::Schema.define(version: 20160528214721) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160525205724) do
     t.integer  "user_id"
   end
 
-  add_index "campaigns", ["user_id"], name: "index_campaigns_on_user_id"
+  add_index "campaigns", ["user_id"], name: "index_campaigns_on_user_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -51,18 +54,18 @@ ActiveRecord::Schema.define(version: 20160525205724) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "legs", ["campaign_id"], name: "index_legs_on_campaign_id"
+  add_index "legs", ["campaign_id"], name: "index_legs_on_campaign_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "title"
-    t.float    "latitude"
-    t.float    "longitude"
     t.integer  "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
-  add_index "locations", ["city_id"], name: "index_locations_on_city_id"
+  add_index "locations", ["city_id"], name: "index_locations_on_city_id", using: :btree
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "user_id"
@@ -74,8 +77,8 @@ ActiveRecord::Schema.define(version: 20160525205724) do
     t.datetime "updated_at",                           null: false
   end
 
-  add_index "pledges", ["campaign_id"], name: "index_pledges_on_campaign_id"
-  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id"
+  add_index "pledges", ["campaign_id"], name: "index_pledges_on_campaign_id", using: :btree
+  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id", using: :btree
 
   create_table "residences", force: :cascade do |t|
     t.string   "name"
@@ -85,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160525205724) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "residences", ["location_id"], name: "index_residences_on_location_id"
+  add_index "residences", ["location_id"], name: "index_residences_on_location_id", using: :btree
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"
@@ -95,7 +98,19 @@ ActiveRecord::Schema.define(version: 20160525205724) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "stations", ["location_id"], name: "index_stations_on_location_id"
+  add_index "stations", ["location_id"], name: "index_stations_on_location_id", using: :btree
+
+  create_table "stops", force: :cascade do |t|
+    t.integer  "campaign_id", null: false
+    t.integer  "city_id",     null: false
+    t.integer  "leg_id",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "stops", ["campaign_id"], name: "index_stops_on_campaign_id", using: :btree
+  add_index "stops", ["city_id"], name: "index_stops_on_city_id", using: :btree
+  add_index "stops", ["leg_id"], name: "index_stops_on_leg_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -113,7 +128,16 @@ ActiveRecord::Schema.define(version: 20160525205724) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "users", ["city_id"], name: "index_users_on_city_id"
-  add_index "users", ["location_id"], name: "index_users_on_location_id"
+  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
+  add_index "users", ["location_id"], name: "index_users_on_location_id", using: :btree
 
+  add_foreign_key "campaigns", "users"
+  add_foreign_key "legs", "campaigns"
+  add_foreign_key "locations", "cities"
+  add_foreign_key "pledges", "campaigns"
+  add_foreign_key "pledges", "users"
+  add_foreign_key "residences", "locations"
+  add_foreign_key "stations", "locations"
+  add_foreign_key "users", "cities"
+  add_foreign_key "users", "locations"
 end
