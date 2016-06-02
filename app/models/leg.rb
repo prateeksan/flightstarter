@@ -1,4 +1,8 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+#
 # encoding: utf-8
+
 class Leg < ActiveRecord::Base
   belongs_to :campaign
   belongs_to :startpoint, class_name: 'City'

@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 require 'rails_helper'
 
 RSpec.feature "User visits a campaign's page", type: :feature do

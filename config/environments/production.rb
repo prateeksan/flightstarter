@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 require File.expand_path('../boot', __FILE__)
 
 require "rails"

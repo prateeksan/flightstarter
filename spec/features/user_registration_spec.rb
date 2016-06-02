@@ -1,3 +1,6 @@
+# # Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 # /spec/features/user_registration_spec.rb
 require 'rails_helper'
 

@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 class Location < ActiveRecord::Base
   belongs_to :city
   geocoded_by :title_with_city

@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 class LegsController < ApplicationController
   # GET /campaigns/:campaign_id/legs/new
   def new

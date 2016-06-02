@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 class CreateCampaigns < ActiveRecord::Migration
   def change
     create_table :campaigns do |t|
