@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 class City < ActiveRecord::Base
   geocoded_by :name_with_country
   after_validation :geocode

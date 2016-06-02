@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 # puma config from here:
 # https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server
 workers Integer(ENV['WEB_CONCURRENCY'] || 2)

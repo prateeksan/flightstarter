@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+#
 # Be sure to restart your server when you modify this file.
 
 # You can add backtrace silencers for libraries that you're using but don't wish to see in your backtraces.

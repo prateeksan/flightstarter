@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 class DecimalCurrency < ActiveRecord::Migration
   TARGETS = [[:campaigns, :requisite_funding],
              [:pledges, :amount]]

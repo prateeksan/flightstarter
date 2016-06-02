@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 class LandingController < ApplicationController
   def index
     @current_user = current_user

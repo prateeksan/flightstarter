@@ -1,3 +1,6 @@
+# Copyright 2016 Prateek Sanyal and Steven Dee.
+# All rights reserved.
+
 # Be sure to restart your server when you modify this file.
 
 # Add new inflection rules using the following format. Inflections
