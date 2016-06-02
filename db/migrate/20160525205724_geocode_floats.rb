@@ -1,6 +1,8 @@
 class GeocodeFloats < ActiveRecord::Migration
   def change
-    change_column :locations, :latitude, :float
-    change_column :locations, :longitude, :float
+    remove_column :locations, :latitude
+    remove_column :locations, :longitude
+    add_column :locations, :latitude, :float
+    add_column :locations, :longitude, :float
   end
 end
