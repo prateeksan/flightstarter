@@ -40,8 +40,9 @@ group :development, :test do
 end
 
 group :test do
-    gem 'capybara', '2.7.0'
-    gem 'factory_girl_rails'
+  gem 'capybara', '2.7.0'
+  gem 'factory_girl_rails'
+  gem 'rack_session_access'
 end
 
 group :development do
