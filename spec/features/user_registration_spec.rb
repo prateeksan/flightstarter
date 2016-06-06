@@ -4,7 +4,7 @@
 # /spec/features/user_registration_spec.rb
 require 'rails_helper'
 
-RSpec.xfeature 'Visitor registers' do
+RSpec.feature 'Visitor registers' do
   
   scenario 'with valid fields' do
       visit '/'
@@ -12,6 +12,7 @@ RSpec.xfeature 'Visitor registers' do
 
       fill_in "Username", :with => "testuser"
       fill_in "Password", :with => "password1"
+      fill_in "Password confirmation", :with => "password1"
       fill_in "Email", :with => "test@user.com"
 
       #TODO(soon): Add spec tests for Avatar upload
@@ -21,13 +22,14 @@ RSpec.xfeature 'Visitor registers' do
   end
 
   scenario 'with invalid fields' do
+    pending 'Add extra fields'
       visit '/'
       click_link "Sign Up"
 
       fill_in "Username", :with => "testuser"
       fill_in "Password", :with => ""
       fill_in "Email", :with => "test@user.com"
-      fill_in "Age", :wtih => "20"
+      fill_in "Age", :with => "20"
       fill_in "Pronoun", :with => "He"
       fill_in "Zip", :with => "122011"
       fill_in "City", :with => "Delhi"
