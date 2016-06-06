@@ -2,6 +2,7 @@
 # All rights reserved.
 
 class Campaign < ActiveRecord::Base
-  validates :title, length: { minimum: 2 }
+  belongs_to :user
   has_many :legs
+  validates :title, length: { minimum: 2 }
 end
