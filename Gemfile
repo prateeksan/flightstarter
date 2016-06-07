@@ -34,9 +34,12 @@ gem "twitter-bootstrap-rails", '3.2.2'
 # Font-Icons
 gem "font-awesome-rails", '4.6.3.0'
 
+gem 'lograge'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '3.4.0'
+  gem 'quiet_assets'
 end
 
 group :test do

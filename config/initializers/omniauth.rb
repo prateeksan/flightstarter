@@ -8,3 +8,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     scope: 'read_write',
     stripe_landing: 'register'
 end
+
+OmniAuth.config.logger = Rails.logger
