@@ -34,10 +34,7 @@ module FlightStarter
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.active_record.logger = nil
   end
 end
-
-# TODO(someday): put this somewhere better
-WEPAY = WePay::Client.new(Rails.application.secrets.wepay_client_id,
-                          Rails.application.secrets.wepay_client_secret,
-                          true)

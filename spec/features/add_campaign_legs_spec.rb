@@ -4,7 +4,8 @@
 require 'rails_helper'
 
 RSpec.feature "User adds a leg to a campaign", type: :feature do
-  let(:campaign) { create(:campaign) }
+  let(:user) { create(:user) }
+  let(:campaign) { create(:campaign, user: user) }
   let!(:city1) { create(:city) }
   let!(:city2) { create(:city) }
 
@@ -26,5 +27,9 @@ RSpec.feature "User adds a leg to a campaign", type: :feature do
     click_link 'Add leg'
     click_button 'Create Leg'
     expect(page).to have_text('There was an error creating the leg.')
+  end
+
+  xscenario "someone else's campaign" do
+    login_as(create :user)
   end
 end

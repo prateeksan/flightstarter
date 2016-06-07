@@ -15,7 +15,7 @@ gem 'rack-timeout'
 gem 'rails_12factor', group: :production
 
 gem 'geocoder'
-gem 'wepay'
+gem 'omniauth-stripe-connect'
 
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -34,14 +34,22 @@ gem "twitter-bootstrap-rails", '3.2.2'
 # Font-Icons
 gem "font-awesome-rails", '4.6.3.0'
 
+gem 'lograge'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '3.4.0'
+  gem 'quiet_assets'
 end
 
 group :test do
-    gem 'capybara', '2.7.0'
-    gem 'factory_girl_rails'
+  gem 'capybara', '2.7.0'
+  gem 'factory_girl_rails'
+  gem 'rack_session_access'
+  gem 'poltergeist'
+  gem 'phantomjs'
+  gem 'database_cleaner'
+  gem 'webmock', require: false
 end
 
 group :development do
