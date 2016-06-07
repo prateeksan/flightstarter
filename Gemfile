@@ -43,6 +43,10 @@ group :test do
   gem 'capybara', '2.7.0'
   gem 'factory_girl_rails'
   gem 'rack_session_access'
+  gem 'poltergeist'
+  gem 'phantomjs'
+  gem 'database_cleaner'
+  gem 'webmock', require: false
 end
 
 group :development do
