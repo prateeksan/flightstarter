@@ -3,5 +3,8 @@
 
 FactoryGirl.define do
   factory :leg do
+    campaign
+    association :startpoint, factory: :city
+    association :endpoint, factory: :city
   end
 end

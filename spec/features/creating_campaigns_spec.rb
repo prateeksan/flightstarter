@@ -4,6 +4,10 @@
 require 'rails_helper'
 
 RSpec.feature "User creates a campaign", type: :feature do
+  background do
+    login_as create :user
+  end
+
   scenario 'with minimal input' do
     visit '/campaigns/new'
     fill_in 'Title', with: 'Cool Campaign'
@@ -25,7 +29,4 @@ RSpec.feature "User creates a campaign", type: :feature do
     click_button 'Create Campaign'
     expect(page).to have_text('Campaign was successfully created.')
   end
-
-  # TODO(soon): doesn't allow numeric-only campaigns
-  # goal: keep /campaigns/:id and /campaigns/:title disjoint
 end

@@ -21,6 +21,7 @@ RSpec.describe Leg, type: :model do
     context 'only startpoint' do
       before do
         leg.startpoint = build(:city, name: 'Atlanta')
+        leg.endpoint = nil
       end
 
       it { is_expected.to eq('Atlanta') }
@@ -28,6 +29,7 @@ RSpec.describe Leg, type: :model do
 
     context 'only endpoint' do
       before do
+        leg.startpoint = nil
         leg.endpoint = build(:city, name: 'Boston')
       end
 

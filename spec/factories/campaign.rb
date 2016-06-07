@@ -4,5 +4,6 @@
 FactoryGirl.define do
   factory :campaign do
     title 'A cool campaign'
+    user
   end
 end

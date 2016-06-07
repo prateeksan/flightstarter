@@ -9,7 +9,7 @@ class CampaignsController < ApplicationController
 
   # POST /campaigns
   def create
-    @campaign = Campaign.create(campaign_params)
+    @campaign = Campaign.create(campaign_params.merge(user: current_user))
     if @campaign.save
       flash[:success] = 'Campaign was successfully created.'
     else
